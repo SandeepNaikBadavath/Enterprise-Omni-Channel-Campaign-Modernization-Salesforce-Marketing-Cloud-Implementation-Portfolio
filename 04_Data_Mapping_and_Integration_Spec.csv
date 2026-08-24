@@ -1,0 +1,8 @@
+Source System,Source Table,Source Field,Target System,Target Data Extension,Target Field,Data Type,Transformation / Business Logic
+Snowflake,MEM_MASTER,MEMBER_ID,SFMC,DE_Member_Master,SubscriberKey,Text (50),Primary Key; MD5 hashed identifier
+Snowflake,MEM_MASTER,FIRST_NAME,SFMC,DE_Member_Master,FirstName,Text (100),InitCap formatting
+Snowflake,MEM_MASTER,CELL_PHONE,SFMC,DE_Member_Master,Phone_Number,Phone,E.164 standard formatting (+1XXXXXXXXXX)
+Snowflake,MEM_CONSENT,SMS_OPT_IN_FLAG,SFMC,DE_Member_Master,SMS_OptIn,Boolean,Convert 'Y/N' to 'True/False'
+Snowflake,MEM_CONSENT,LAST_OPTIN_DATE,SFMC,DE_Member_Master,Consent_Timestamp,Date,Must be <= Current Date
+Snowflake,MEM_CLINICAL,CARE_GAP_CODE,SFMC,DE_Campaign_Audience,Care_Gap_Type,Text (50),Map code to descriptive campaign bucket
+SFMC,DE_Campaign_Tracking,Call_Outcome,NICE CXone,CALL_DISPOSITION_QUEUE,Disposition_Status,Text (30),Sync via REST API for abandoned IVR follow-ups
